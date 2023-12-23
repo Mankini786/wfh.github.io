@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unlock Page with Question</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Linking the external CSS file -->
+</head>
+<body>
+
+  
+  <div class="question-container">
+    <h1>Welcome to the Quiz!</h1>
+    <p>Answer the question to access the page:</p>
+    <label for="answer">What is smoll and red but still a insect?</label>
+    <input type="text" id="answer" />
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="result"></p>
+  </div>
+
+  <div class="page-content">
+    <h1>Congratulations!</h1>
+    <p>SHUKR YAAAD HAI!!!    :)</p>
+    <!-- Add the content of your webpage here -->
+  </div>
+
+  <div class="background-success"></div>
+
+  <audio id="correctSound">
+    <source src="baymaxsound.mp3" type="audio/mpeg"> <!-- Replace with your MP3 file -->
+    Your browser does not support the audio element.
+  </audio>
+
+  
+
+  <script>
+    function checkAnswer() {
+      var userInput = document.getElementById('answer').value.toLowerCase();;
+      var resultText = document.getElementById('result');
+      var pageContent = document.querySelector('.page-content');
+      var questionContainer = document.querySelector('.question-container');
+      var submitButton = document.querySelector('.question-container button');
+      var successBackground = document.querySelector('.background-success');
+
+      if (userInput === 'ladybug' || userInput === 'ladybird') {
+        resultText.textContent = 'Correct answer!';
+        questionContainer.style.display = 'none';
+        pageContent.style.display = 'block';
+    
+    // Show background after correct answer
+    successBackground.style.opacity = '1';
+    successBackground.style.pointerEvents = 'auto';
+
+    var audio = document.getElementById('correctSound');
+        audio.play();
+
+
+        var scrollBox = document.createElement('div');
+        scrollBox.classList.add('scroll-box');
+        var textContent = document.createTextNode("Hey (Mein Aik He Naam Se Bulata Houn Aur Wo Lena Mana Krdia Hai),I Hope Youre Doing Alright. I Feel Pretty Down After Realizing How My Busy Time Affected Us. Ive Been Thinking A Lot About The Last Four Years Weve Spent Together And How Important You Are To Me. Im Sorry If My Being Busy Made You Feel Like Stepping Back Was The Only Option.I Want You To Know That Your Happiness Is Super Important To Me Im Wondering If Youve Talked To Your Mom About Whats Been Going On Between Us, Should I Talk To My Amma Jaan? I Also Worry If Youre Happy Without Me Around. Your Happiness Matters Most, Even If It Means Being Without Me. I Care About You A Lot, And Whatever Makes You Happiest Is What I Want For You. I Miss You And Care About Our Relationship And I Hope We Can Figure Things Out Together.~ LADYBUG");
+        scrollBox.appendChild(textContent);
+        document.body.appendChild(scrollBox); 
+
+
+        // Create action buttons
+      var actionButtons = document.createElement('div');
+      actionButtons.classList.add('action-buttons');
+
+      var button1 = document.createElement('button');
+      button1.textContent = 'Aunty Ko Bta Dia!';
+      button1.addEventListener('click', function() {
+        alert('Oh! Theeek Challen Behtar  ');
+
+      });
+
+      var button2 = document.createElement('button');
+      button2.textContent = 'Maybe We Can Try!';
+      button2.addEventListener('click', function() {
+        // Action 2 functionality here
+        alert('TENNKKKEWWW <3 ');
+      });
+
+      actionButtons.appendChild(button1);
+      actionButtons.appendChild(button2);
+      document.body.appendChild(actionButtons);
+        
+      } else {
+        resultText.textContent = 'Wrong answer. Try again!';
+        submitButton.classList.add('wrong-answer');
+        setTimeout(function() {
+          submitButton.classList.remove('wrong-answer');
+        }, 500); // Reset animation after 500 milliseconds
+      }
+      
+    }
+
+
+   
+    
+    
+  </script>
+</body>
+</html>

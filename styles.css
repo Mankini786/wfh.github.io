@@ -1,0 +1,193 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f3f3;
+  }
+  
+  /* Styles for Question Container */
+  .question-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%; /* Set maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  
+  .question-container h1 {
+    margin-top: 0;
+    font-size: 28px;
+  }
+  
+  .question-container p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .question-container label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* Your existing styles */
+
+/* Style for the text box with typewriter effect */
+.scroll-box {
+    position: fixed;
+       top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 110px; /* Adjust the height of the scroll box */
+    padding: 20px; /* Padding for inner content */
+    background-color: #fff;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: scroll; /* Enable vertical scroll */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+
+  .action-buttons {
+    position: absolute;
+      bottom: 10px; /* Adjust as needed */
+      right: 10px; /* Adjust as needed */
+  }
+
+  .action-buttons button {
+    margin: 0 10px;
+    padding: 8px 150px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .action-buttons button:hover {
+    background-color: #ddd;
+  }
+ 
+
+
+  .background-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('Baymax.gif'); /* Replace 'Baymax.gif' with your GIF file */
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+}
+  
+  .question-container input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .question-container button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .question-container button:hover {
+    background-color: #45a049;
+  }
+  
+  .question-container p#result {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  /* Styles for Page Content */
+  .page-content {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .page-content h1 {
+    font-size: 32px;
+    margin-top: 0;
+  }
+  
+  .page-content p {
+    font-size: 18px;
+  }
+  
+  /* Media Query for Responsive Design */
+  @media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens (e.g., tablets) */
+    .question-container {
+      max-width: 90%;
+    }
+  
+    .page-content {
+      margin-top: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    /* Adjust styles for smaller screens (e.g., mobile devices) */
+    .question-container {
+      padding: 15px;
+    }
+  
+    .question-container h1 {
+      font-size: 24px;
+    }
+  
+    .question-container p {
+      font-size: 14px;
+    }
+  
+    .question-container button {
+      padding: 6px 16px;
+    }
+  
+    .page-content h1 {
+      font-size: 28px;
+    }
+  
+    .page-content p {
+      font-size: 16px;
+    }
+
+/* ... (your existing styles) ... */
+
+/* Additional style for background after correct answer */
+
+    
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  /* Apply the animation to the button when answer is wrong */
+  .question-container button.wrong-answer {
+    animation: shake 0.5s ease-in-out;
+    animation-fill-mode: forwards; /* Maintain final state after animation */
+  }
